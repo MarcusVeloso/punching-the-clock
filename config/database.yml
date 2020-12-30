@@ -1,0 +1,21 @@
+# PostgreSQL. Versions 9.1 and up are supported.
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: postgres
+  user: postgres
+
+development:
+  <<: *default
+  database: punching-the-clock_development
+
+test:
+  <<: *default
+  database: punching-the-clock_test
+
+production:
+  <<: *default
+  database: punching-the-clock_production
+  # username: punching-the-clock
+  # password: <%= ENV['PUNCHING-THE-CLOCK_DATABASE_PASSWORD'] %>
